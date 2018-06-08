@@ -1,4 +1,4 @@
-defmodule Copan.Schemas.User do
+defmodule Copan.Schema.Category do
   @moduledoc """
   Basically the tenants list
   """
@@ -7,9 +7,11 @@ defmodule Copan.Schemas.User do
 
   @primary_key {:id, :binary_id, autogenerate: true}
 
-  schema "users" do
+  schema "categories" do
     field(:name, :string)
-    field(:email, :string)
+    field(:position, :integer)
+
+    has_many(:articles, Copan.Schema.Article)
 
     timestamps()
   end

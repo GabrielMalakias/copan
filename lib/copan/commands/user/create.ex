@@ -8,7 +8,7 @@ defmodule Copan.Commands.User.Create do
   end
 
   defp build_changeset(params) do
-    %Copan.Schemas.User{}
+    %Copan.Schema.User{}
     |> cast(params, [:name, :email])
     |> validate_required([:email, :name])
     |> unique_constraint(:email)
