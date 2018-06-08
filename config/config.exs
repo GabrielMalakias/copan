@@ -26,6 +26,7 @@ config :copan, Copan.Repo,
   migration_primary_key: [id: :uuid, type: :binary_id],
   migration_timestamps: [type: :utc_datetime]
 
+config :triplex, repo: Copan.Repo
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

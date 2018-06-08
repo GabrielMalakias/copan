@@ -9,4 +9,8 @@ defmodule Copan.Repo.Migrations.AddUsersTable do
       timestamps()
     end
   end
+
+  def down do
+    drop table("users")
+  end
 end

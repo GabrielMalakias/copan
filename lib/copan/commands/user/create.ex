@@ -1,8 +1,13 @@
 defmodule Copan.Commands.User.Create do
+  @moduledoc """
+  Creates users given a map
+  """
+
   import Ecto.Changeset
 
   def call(params) do
-    build_changeset(params)
+    params
+    |> build_changeset
     |> Copan.Repo.insert!
     |> Copan.Infrastructure.Tenant.Create.call
   end

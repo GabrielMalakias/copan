@@ -6,12 +6,13 @@ defmodule Copan.Schema.Article do
   use Ecto.Schema
 
   @primary_key {:id, :binary_id, autogenerate: true}
+  @foreign_key_type :binary_id
 
   schema "articles" do
     field(:title, :string)
     field(:image, :string)
-    field(:content, :text)
-    field(:description, :text)
+    field(:content, :string)
+    field(:description, :string)
 
     belongs_to(:category, Copan.Schema.Category)
 
