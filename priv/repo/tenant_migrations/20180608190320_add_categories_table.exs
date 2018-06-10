@@ -5,6 +5,8 @@ defmodule Copan.Repo.Migrations.AddCategoriesTable do
     create table("categories") do
       add :name, :string
       add :position, :integer
+
+      timestamps()
     end
   end
 

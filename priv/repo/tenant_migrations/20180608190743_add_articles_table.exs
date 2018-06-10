@@ -8,6 +8,8 @@ defmodule Copan.Repo.Migrations.AddArticlesTable do
       add :content, :string
       add :description, :string
       add :category_id, references(:categories)
+
+      timestamps()
     end
   end
 
