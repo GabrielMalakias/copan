@@ -41,7 +41,7 @@ defmodule Copan.Mixfile do
       {:triplex, "~> 1.1.5"},
       {:credo, "~> 0.9.0-rc1", only: [:dev, :test], runtime: false},
       {:absinthe_ecto, "~> 0.1.0"},
-      {:absinthe_plug, "~> 1.3.0"},
+      {:absinthe_plug, "~> 1.3.0"}
     ]
   end
 

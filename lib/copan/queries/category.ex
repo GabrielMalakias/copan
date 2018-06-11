@@ -5,6 +5,7 @@ defmodule Copan.Queries.Category do
 
   import Ecto.Query, only: [from: 2]
 
-  def all do
+  def all(id) do
+    Copan.Repo.all(Copan.Schema.Category, prefix: id)
   end
 end
