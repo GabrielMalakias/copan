@@ -3,7 +3,7 @@ defmodule Copan.Infrastructure.Tenant.Destroy do
   Destroy tenants based on id
   """
 
-  def call(id) do
+  def call(%Copan.Schema.User{id: id}) do
     Triplex.drop(id)
   end
 end
