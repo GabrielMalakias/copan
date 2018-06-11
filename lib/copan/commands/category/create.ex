@@ -5,10 +5,10 @@ defmodule Copan.Commands.Category.Create do
 
   import Ecto.Changeset
 
-  def call(params, prefix) do
+  def call(%Copan.Schema.User{id: id}, params) do
     params
     |> build_changeset
-    |> Copan.Repo.insert!(prefix: prefix)
+    |> Copan.Repo.insert!(prefix: id)
   end
 
   defp build_changeset(params) do
