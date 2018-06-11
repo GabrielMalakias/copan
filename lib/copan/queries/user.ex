@@ -7,7 +7,7 @@ defmodule Copan.Queries.User do
 
   def all do
     query = from u in Copan.Schema.User,
-    select: %{id: u.id, email: u.email}
+    select: %{id: u.id, email: u.email, name: u.name}
 
     Copan.Repo.all(query)
   end

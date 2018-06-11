@@ -1,6 +1,5 @@
 defmodule Copan.Resolvers.Category do
-  def all_categories(_root, %{user_id: id}, _info) do
-
+  def all(_root, %{filter: %{user_id: id}}, _info) do
     categories = Copan.Queries.Category.all(id)
 
     {:ok, categories}
