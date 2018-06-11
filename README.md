@@ -1,6 +1,6 @@
 # Copan
 
-![alt text](https://c1.staticflickr.com/3/2761/4365361350_21e9f71ca7_b.jpg =250x)
+![alt text](https://c1.staticflickr.com/3/2761/4365361350_21e9f71ca7_b.jpg | width=100)
 
 
 ### Some examples
