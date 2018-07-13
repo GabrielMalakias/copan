@@ -8,8 +8,8 @@ defmodule CopanWeb.Schema.Category do
   end
 
   object :category_queries do
-    field :categories, non_null(list_of(non_null(:category))) do
-      arg :filter, non_null(:filter)
+    field :categories, list_of(non_null(:category)) do
+      arg :scope, non_null(:scope)
 
       resolve &Copan.Resolvers.Category.all/3
     end

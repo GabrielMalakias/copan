@@ -10,9 +10,9 @@ defmodule CopanWeb.Schema.Article do
     field :extra, :string
   end
 
-  query do
+  object :article_queries do
     field :articles, non_null(list_of(non_null(:article))) do
-      arg :filter, non_null(:filter)
+      arg :scope, non_null(:scope)
 
       resolve &Copan.Resolvers.Article.all/3
     end

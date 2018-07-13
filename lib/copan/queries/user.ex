@@ -11,4 +11,16 @@ defmodule Copan.Queries.User do
 
     Copan.Repo.all(query)
   end
+
+  def find_by_id(id) do
+    Copan.Repo.get(Copan.Schema.User, id)
+  end
+
+  def tenant_exists?(%Copan.Schema.User{id: id})  do
+    if Triplex.exists?(id) do
+      {:ok, id}
+    else
+      {:error, 'Not Found'}
+    end
+  end
 end
