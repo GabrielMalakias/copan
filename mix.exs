@@ -30,7 +30,7 @@ defmodule Copan.Mixfile do
 
   defp deps do
     [
-      {:phoenix, "~> 1.3.2"},
+      {:phoenix, "~> 1.3.3"},
       {:phoenix_pubsub, "~> 1.0"},
       {:phoenix_ecto, "~> 3.2"},
       {:postgrex, ">= 0.0.0"},
