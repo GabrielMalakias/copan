@@ -42,7 +42,7 @@ defmodule Copan.Mixfile do
       {:credo, "~> 0.9.0-rc1", only: [:dev, :test], runtime: false},
       {:absinthe_ecto, "~> 0.1.0"},
       {:absinthe_plug, "~> 1.3.0"},
-      {:vex, "0.7.0"}
+      {:redshift_ecto, "~> 0.2.0"},
     ]
   end
 

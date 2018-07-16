@@ -1,23 +1,8 @@
 defmodule Copan.Resolvers.Category do
-  require IEx
-  """
-  def all(_root, %{scope: %{user_id: id}}, _info) do
-    Copan.Validators.Scope.validate(id)
-    |> execute
-  end
-  """
-  def all(_root, _params, _info) do
-    IEx.pry
-  end
-
-  defp execute({:ok, id}) do
-    find_user(id)
+  def all(_root, _params, %{context: %{user: uuid}}) do
+    find_user(uuid)
     |> tenant_exists?
     |> find_categories
-  end
-
-  defp execute(error) do
-    error
   end
 
   defp find_user(user_id) do

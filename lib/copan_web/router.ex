@@ -3,14 +3,18 @@ defmodule CopanWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug CopanWeb.Plugs.Context
   end
 
-  scope "/" do
+  scope "/api" do
     pipe_through :api
 
     forward "/graphiql", Absinthe.Plug.GraphiQL,
       schema: CopanWeb.Schema,
       interface: :simple,
       context: %{pubsub: CopanWeb.Endpoint}
+
+    forward "/", Absinthe.Plug,
+      schema: CopanWeb.Schema
   end
 end

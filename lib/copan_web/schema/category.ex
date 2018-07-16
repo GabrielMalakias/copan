@@ -9,8 +9,6 @@ defmodule CopanWeb.Schema.Category do
 
   object :category_queries do
     field :categories, list_of(non_null(:category)) do
-      arg :scope, non_null(:scope)
-
       resolve &Copan.Resolvers.Category.all/3
     end
   end

@@ -12,8 +12,6 @@ defmodule CopanWeb.Schema.Article do
 
   object :article_queries do
     field :articles, non_null(list_of(non_null(:article))) do
-      arg :scope, non_null(:scope)
-
       resolve &Copan.Resolvers.Article.all/3
     end
   end
