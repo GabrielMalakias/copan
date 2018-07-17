@@ -37,12 +37,12 @@ defmodule Copan.Mixfile do
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
-      {:cowboy, "~> 1.0"},
+      {:cowboy, "~> 2.3", override: true},
       {:triplex, "~> 1.1.5"},
       {:credo, "~> 0.9.0-rc1", only: [:dev, :test], runtime: false},
       {:absinthe_ecto, "~> 0.1.0"},
       {:absinthe_plug, "~> 1.3.0"},
-      {:redshift_ecto, "~> 0.2.0"},
+      {:gen_rmq, "~> 1.0.0"},
     ]
   end
 

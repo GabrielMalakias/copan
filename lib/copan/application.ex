@@ -10,6 +10,7 @@ defmodule Copan.Application do
     children = [
       supervisor(Copan.Repo, []),
       supervisor(CopanWeb.Endpoint, []),
+      supervisor(Copan.Infrastructure.AMPQSupervisor, []),
       # worker(Copan.Worker, [arg1, arg2, arg3]),
     ]
 
