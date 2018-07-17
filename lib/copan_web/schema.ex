@@ -4,10 +4,12 @@ defmodule CopanWeb.Schema do
   import_types CopanWeb.Schema.User
   import_types CopanWeb.Schema.Article
   import_types CopanWeb.Schema.Category
+  import_types CopanWeb.Schema.Appointment
 
   query do
     import_fields :user_queries
     import_fields :article_queries
     import_fields :category_queries
+    import_fields :appointment_queries
   end
 end

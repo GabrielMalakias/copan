@@ -11,7 +11,6 @@ defmodule Copan.Application do
       supervisor(Copan.Repo, []),
       supervisor(CopanWeb.Endpoint, []),
       supervisor(Copan.Infrastructure.AMPQSupervisor, []),
-      # worker(Copan.Worker, [arg1, arg2, arg3]),
     ]
 
     opts = [strategy: :one_for_one, name: Copan.Supervisor]

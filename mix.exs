@@ -20,7 +20,7 @@ defmodule Copan.Mixfile do
   def application do
     [
       mod: {Copan.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :amqp]
     ]
   end
 
@@ -37,11 +37,11 @@ defmodule Copan.Mixfile do
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
-      {:cowboy, "~> 2.3", override: true},
+      {:cowboy, "~> 1.0"},
       {:triplex, "~> 1.1.5"},
       {:credo, "~> 0.9.0-rc1", only: [:dev, :test], runtime: false},
       {:absinthe_ecto, "~> 0.1.0"},
-      {:absinthe_plug, "~> 1.3.0"},
+      {:absinthe_plug, "~> 1.4.5"},
       {:gen_rmq, "~> 1.0.0"},
     ]
   end

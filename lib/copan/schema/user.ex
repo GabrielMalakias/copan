@@ -10,6 +10,7 @@ defmodule Copan.Schema.User do
   schema "users" do
     field(:name, :string)
     field(:email, :string)
+    field(:reference_id, :string)
 
     timestamps()
   end

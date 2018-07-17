@@ -3,6 +3,8 @@ defmodule Copan.Commands.User.Create do
   Creates users given a map
   """
 
+  require IEx
+
   import Ecto.Changeset
 
   def call(params) do
@@ -14,8 +16,8 @@ defmodule Copan.Commands.User.Create do
 
   defp build_changeset(params) do
     %Copan.Schema.User{}
-    |> cast(params, [:name, :email])
-    |> validate_required([:email, :name])
+    |> cast(params, [:name, :email, :reference_id])
+    |> validate_required([:email, :name, :reference_id])
     |> unique_constraint(:email)
   end
 end

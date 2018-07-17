@@ -1,4 +1,4 @@
-defmodule Copan.Consumers.UserCreated do
+defmodule Copan.Consumers.AppointmentCreated do
   @behaviour GenRMQ.Consumer
 
   require IEx
@@ -10,9 +10,9 @@ defmodule Copan.Consumers.UserCreated do
 
   def init() do
     [
-      queue: "copan_user_created",
+      queue: "copan_appointment_created",
       exchange: "public",
-      routing_key: "users.v2.created",
+      routing_key: "appointments.v1.created",
       uri: "amqp://guest:guest@localhost:5672",
       prefetch_count: "10",
       retry_delay_function: fn attempt -> :timer.sleep(2000 * attempt) end
@@ -30,14 +30,14 @@ defmodule Copan.Consumers.UserCreated do
   end
 
   def consumer_tag() do
-    "user_created"
+    "appointment_created"
   end
 
   def execute(%GenRMQ.Message{payload: payload}) do
     payload
     |> Poison.decode
-    |> Copan.Parsers.Broker.UserCreated.call
-    |> Copan.Commands.User.Create.call
+    |> Copan.Parsers.Broker.AppointmentCreated.call
+    |> Copan.Commands.Appointment.Create.call
   end
 
   def handle_message(message) do

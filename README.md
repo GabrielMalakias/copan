@@ -22,3 +22,21 @@ Render categories by tenant
   position
 }}
 ```
+
+
+Creating an user by consuming a RabbitMQ message
+
+users.v1.created
+
+```json
+{
+   "data":{
+      "id":"9eacb986-c1c5-4a81-a045-fec8b8793b0b",
+      "type":"users",
+      "attributes":{
+         "name": "Random User",
+         "email":"tenant@randomuser.com"
+      }
+   }
+}
+```
