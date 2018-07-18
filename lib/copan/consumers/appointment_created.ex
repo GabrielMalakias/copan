@@ -1,7 +1,7 @@
 defmodule Copan.Consumers.AppointmentCreated do
-  use Copan.Consumers.Base
+  @behaviour GenRMQ.Consumer
 
-  require IEx
+  require Logger
 
   def start_link() do
     GenRMQ.Consumer.start_link(__MODULE__, name: __MODULE__)
@@ -11,12 +11,22 @@ defmodule Copan.Consumers.AppointmentCreated do
     [
       queue: "copan_appointment_created",
       exchange: "public",
-      routing_key: ["appointments.v1.created"],
+      routing_key: "appointments.v1.created",
       uri: "amqp://guest:guest@localhost:5672",
       prefetch_count: "10",
       retry_delay_function: fn attempt -> :timer.sleep(2000 * attempt) end
     ]
   end
+
+    def ack(%GenRMQ.Message{attributes: %{delivery_tag: tag}} = message) do
+      Logger.debug("Message successfully processed. Tag: #{tag}")
+      GenRMQ.Consumer.ack(message)
+    end
+
+    def reject(%GenRMQ.Message{attributes: %{delivery_tag: tag}} = message, requeue \\ true) do
+      Logger.info("Rejecting message, tag: #{tag}, requeue: #{requeue}")
+      GenRMQ.Consumer.reject(message, requeue)
+    end
 
   def consumer_tag() do
     "appointment_created"

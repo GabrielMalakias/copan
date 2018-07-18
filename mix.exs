@@ -20,7 +20,7 @@ defmodule Copan.Mixfile do
   def application do
     [
       mod: {Copan.Application, []},
-      extra_applications: [:logger, :runtime_tools, :amqp, :conduit]
+      extra_applications: [:logger, :runtime_tools, :amqp]
     ]
   end
 
@@ -43,7 +43,6 @@ defmodule Copan.Mixfile do
       {:absinthe_ecto, "~> 0.1.0"},
       {:absinthe_plug, "~> 1.4.5"},
       {:gen_rmq, "~> 1.0.0"},
-      {:conduit, "~> 0.10"}
     ]
   end
 
