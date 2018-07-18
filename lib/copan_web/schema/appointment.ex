@@ -9,6 +9,8 @@ defmodule CopanWeb.Schema.Appointment do
 
   object :appointment_queries do
     field :appointment_report, list_of(non_null(:appointment_report)) do
+      arg :filter, non_null(:filter)
+
       resolve &Copan.Resolvers.Appointment.report/3
     end
   end

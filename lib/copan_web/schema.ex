@@ -5,6 +5,7 @@ defmodule CopanWeb.Schema do
   import_types CopanWeb.Schema.Article
   import_types CopanWeb.Schema.Category
   import_types CopanWeb.Schema.Appointment
+  import_types CopanWeb.Schema.Filter
 
   query do
     import_fields :user_queries
