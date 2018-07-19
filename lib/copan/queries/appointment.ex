@@ -25,8 +25,8 @@ defmodule Copan.Queries.Appointment do
   @spec total_group_by(String.t(), tuple(), atom()) :: tuple()
   def total_group_by(id, filter_params, :day) do
     query = from a in build_base_query(filter_params),
-      group_by: fragment("date_trunc('day', ?)", a.inserted_at),
-      select: %{ date: type(fragment("date_trunc('day', ?)", a.inserted_at), :utc_datetime), value: count(a.id) }
+      group_by: fragment("date_trunc('day', ?)", a.starts_at),
+      select: %{ date: type(fragment("date_trunc('day', ?)", a.starts_at), :utc_datetime), value: count(a.id) }
 
     Copan.Repo.all(query, prefix: id)
   end
@@ -34,8 +34,8 @@ defmodule Copan.Queries.Appointment do
   @spec total_group_by(String.t(), tuple(), atom()) :: tuple()
   def total_group_by(id, filter_params, :minute) do
     query = from a in build_base_query(filter_params),
-      group_by: fragment("date_trunc('minute', ?)", a.inserted_at),
-      select: %{ date: type(fragment("date_trunc('minute', ?)", a.inserted_at), :utc_datetime), value: count(a.id) }
+      group_by: fragment("date_trunc('minute', ?)", a.starts_at),
+      select: %{ date: type(fragment("date_trunc('minute', ?)", a.starts_at), :utc_datetime), value: count(a.id) }
 
     Copan.Repo.all(query, prefix: id)
   end
@@ -43,8 +43,8 @@ defmodule Copan.Queries.Appointment do
   @spec total_group_by(String.t(), tuple(), atom()) :: tuple()
   def total_group_by(id, filter_params, :hour) do
     query = from a in build_base_query(filter_params),
-      group_by: fragment("date_trunc('hour', ?)", a.inserted_at),
-      select: %{ date: type(fragment("date_trunc('hour', ?)", a.inserted_at), :utc_datetime), value: count(a.id) }
+      group_by: fragment("date_trunc('hour', ?)", a.starts_at),
+      select: %{ date: type(fragment("date_trunc('hour', ?)", a.starts_at), :utc_datetime), value: count(a.id) }
 
     Copan.Repo.all(query, prefix: id)
   end
@@ -97,7 +97,7 @@ defmodule Copan.Queries.Appointment do
 
   defp build_base_query(%{starts_at: starts_at, ends_at: ends_at}) do
     from a in Copan.Schema.Appointment,
-      where: a.inserted_at >= type(^starts_at, :utc_datetime),
-      where: a.inserted_at <= type(^ends_at, :utc_datetime)
+      where: a.starts_at >= type(^starts_at, :utc_datetime),
+      where: a.starts_at <= type(^ends_at, :utc_datetime)
   end
 end

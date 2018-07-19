@@ -43,6 +43,7 @@ defmodule Copan.Mixfile do
       {:absinthe_ecto, "~> 0.1.0"},
       {:absinthe_plug, "~> 1.4.5"},
       {:gen_rmq, "~> 1.0.0"},
+      {:faker_elixir_octopus, "~> 1.0.2", only: [:dev, :test]},
     ]
   end
 

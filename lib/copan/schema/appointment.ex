@@ -10,8 +10,8 @@ defmodule Copan.Schema.Appointment do
   schema "appointments" do
     field(:status, :string)
     field(:no_show, :boolean)
-
     field(:reference_id, :string)
+    field(:starts_at, :utc_datetime)
 
     timestamps()
   end

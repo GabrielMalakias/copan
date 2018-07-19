@@ -7,6 +7,7 @@ defmodule Copan.Repo.Migrations.AddAppointmentsTable do
       add :no_show, :boolean
       add :price, :float
       add :reference_id, :string
+      add :starts_at, :utc_datetime
 
       timestamps()
     end

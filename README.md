@@ -58,3 +58,12 @@ Authorization: Bearer <user-reference-id>
   }
 }
 ```
+
+### Benchmarking
+
+I've tested this stack locally using wrk. There are some scripts to test it inside './scripts'.
+
+
+```shell
+wrk -t10 -c50 -d30s http://localhost:4000/api -s ./scripts/graph.lua
+```

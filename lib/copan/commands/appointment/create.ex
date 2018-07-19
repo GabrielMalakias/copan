@@ -21,7 +21,7 @@ defmodule Copan.Commands.Appointment.Create do
 
   defp build_changeset(params) do
     %Copan.Schema.Appointment{}
-    |> cast(params, [:status, :no_show, :reference_id])
+    |> cast(params, [:status, :no_show, :reference_id, :starts_at])
     |> validate_required([:status, :no_show, :reference_id])
   end
 end
