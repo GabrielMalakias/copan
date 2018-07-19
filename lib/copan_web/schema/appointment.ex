@@ -5,6 +5,7 @@ defmodule CopanWeb.Schema.Appointment do
     field :total, non_null(:integer)
     field :created, non_null(:integer)
     field :no_show, non_null(:integer)
+    field :confirmed, non_null(:integer)
   end
 
   object :points do

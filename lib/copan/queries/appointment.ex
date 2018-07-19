@@ -12,7 +12,8 @@ defmodule Copan.Queries.Appointment do
     %{
       total: total_count(id, filter_params),
       no_show: no_show_count(id, filter_params),
-      created: confirmed_count(id, filter_params)
+      created: created_count(id, filter_params),
+      confirmed: confirmed_count(id, filter_params),
     }
   end
 
@@ -71,14 +72,27 @@ defmodule Copan.Queries.Appointment do
     |> Copan.Repo.aggregate(:count, :status, prefix: id)
   end
 
+  @spec created_count(String.t(), tuple()) :: non_neg_integer()
+  defp created_count(id, filter_params) do
+     filter_params
+    |> build_base_query
+    |> created
+    |> Copan.Repo.aggregate(:count, :status, prefix: id)
+  end
+
   defp no_show(query) do
     from a in query,
-    where: a.status == "created"
+    where: a.no_show == true
   end
 
   defp confirmed(query) do
     from a in query,
-    where: a.status == "created"
+      where: a.status == "confirmed"
+  end
+
+  defp created(query) do
+    from a in query,
+      where: a.status == "created"
   end
 
   defp build_base_query(%{starts_at: starts_at, ends_at: ends_at}) do
