@@ -1,5 +1,4 @@
 FROM elixir:1.6.5
-MAINTAINER no@one.com
 
 RUN mix local.hex --force \
  && mix archive.install --force  https://github.com/phoenixframework/archives/raw/master/phx_new-1.3.3.ez \
