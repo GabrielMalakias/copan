@@ -28,10 +28,6 @@ config :copan, Copan.Repo,
 
 config :triplex, repo: Copan.Repo
 
-config :copan, CopanQueue.Broker,
-   adapter: ConduitAMQP,
-   url: "amqp://guest:guest@localhost:5672"
-
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"

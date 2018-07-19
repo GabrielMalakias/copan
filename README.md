@@ -11,8 +11,14 @@ It has some dependencies:
 - GenRMQ: A behaviour based library that handles the RabbitMQ connection
 
 ### Instalation
-Install Elixir
-Run Migrations
+- Install Elixir
+- Run Migrations
+- Run server (mix phx.server)
+
+or
+````
+docker-compose up
+```
 
 ##### Creating the database structure
 ```shell
