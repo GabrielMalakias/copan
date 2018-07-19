@@ -8,17 +8,19 @@ It has some dependencies:
 - Ecto/Postgrex: A database wrapper and the elixir client to Postgres
 - Triplex: The library used to manage schemas
 - Absinthe: An GraphQL implementation for elixir
-- GenRMQ: A behaviour based library that handle the RabbitMQ connection
+- GenRMQ: A behaviour based library that handles the RabbitMQ connection
 
 ### Instalation
 Install Elixir
 Run Migrations
+
 ##### Creating the database structure
 ```shell
 mix ecto.create
 mix ecto.migrate
 ```
-#####Seeding the database
+
+##### Seeding the database
 ```shell
 mix run priv/repo/seeds.exs
 mix run priv/repo/appointment_seeds.exs
