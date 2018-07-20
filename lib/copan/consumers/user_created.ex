@@ -9,11 +9,12 @@ defmodule Copan.Consumers.UserCreated do
   end
 
   def init() do
+    host = System.get_env("RABBITMQ_HOST") || "localhost"
     [
       queue: "copan_user_created",
       exchange: "public",
       routing_key: "users.v2.created",
-      uri: "amqp://guest:guest@rabbitmq:5672",
+      uri: "amqp://guest:guest@#{host}:5672",
       prefetch_count: "10",
       retry_delay_function: fn attempt -> :timer.sleep(2000 * attempt) end
     ]

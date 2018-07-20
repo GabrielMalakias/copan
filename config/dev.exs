@@ -53,5 +53,5 @@ config :copan, Copan.Repo,
   username: "postgres",
   password: "postgres",
   database: "copan_dev",
-  hostname: "db",
+  hostname: System.get_env("DATABASE_HOST") || "localhost",
   pool_size: 10

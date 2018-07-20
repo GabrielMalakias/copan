@@ -16,7 +16,7 @@ defmodule CopanWeb.Schema.Appointment do
   enum :grouping_values, values: [:year, :month, :day, :hour, :minute]
 
   object :appointment_queries do
-    field :appointment_report, list_of(non_null(:appointment_report)) do
+    field :appointment_report, non_null(:appointment_report) do
       arg :filter, non_null(:filter)
 
       resolve &Copan.Resolvers.Appointment.report/3

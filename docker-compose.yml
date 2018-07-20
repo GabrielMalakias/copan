@@ -4,6 +4,9 @@ services:
     image: phoenix:1.3.3
     command: sh entrypoint.sh
     build: .
+    environment:
+      RABBITMQ_HOST: rabbitmq
+      DATABASE_HOST: db
     ports:
       - "4000:4000"
     volumes:
