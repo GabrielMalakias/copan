@@ -1,6 +1,6 @@
 wrk.method = "POST"
 wrk.body =
-  [[{appointmentGraph(filter: {startsAt: "2018-07-13T22:00:00.000Z",
+  [[{appointmentGraph(filter: {startsAt: "2018-06-01T22:00:00.000Z",
     endsAt: "2018-07-20T22:00:00.000Z"}, groupBy: DAY) {
     date
     value}}]]

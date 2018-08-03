@@ -1,7 +1,7 @@
 require Logger
-user = Copan.Repo.one!(Copan.Schema.User, email: "copan@copan.com")
+user = Copan.Repo.get(Copan.Schema.User, "a59b9817-5150-4a93-8cb9-8e7481f2fb58")
 
-Enum.map(1..100000, fn (x) ->
+Enum.map(1..1000000, fn (x) ->
   no_show = rem(x, 2) == 0
   status = if rem(x, 2) == 0, do: "created", else: "confirmed"
 

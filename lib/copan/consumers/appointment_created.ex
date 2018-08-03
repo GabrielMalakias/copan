@@ -13,7 +13,7 @@ defmodule Copan.Consumers.AppointmentCreated do
     [
       queue: "copan_appointment_created",
       exchange: "public",
-      routing_key: "appointments.v1.created",
+      routing_key: "services.v2.created",
       uri: "amqp://guest:guest@#{host}:5672",
       prefetch_count: "10",
       retry_delay_function: fn attempt -> :timer.sleep(2000 * attempt) end
@@ -35,6 +35,7 @@ defmodule Copan.Consumers.AppointmentCreated do
   end
 
   def execute(%GenRMQ.Message{payload: payload}) do
+    Logger.info(IO.inspect(payload))
     payload
     |> Poison.decode
     |> Copan.Parsers.Broker.AppointmentCreated.call
