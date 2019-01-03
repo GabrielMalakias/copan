@@ -16,7 +16,7 @@ It has some dependencies:
 - Run server (mix phx.server)
 
 or
-````
+```shell
 docker-compose up
 ```
 
